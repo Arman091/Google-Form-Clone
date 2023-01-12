@@ -1,0 +1,33 @@
+.header{
+   
+    display: flex;
+    position: sticky;
+    justify-content: space-between;
+    align-items: center;
+    margin:4px 2px;
+    height: 70px;
+}
+.info{
+    font-size: 0.8em;
+    color: black;
+    font-family: sans-serif
+}
+
+.search input{
+    border: 2px solid black;
+    width: 250px;
+    height: 40px;
+    border: 1px solid rgb(20, 20, 24);
+    border-radius: 2px;
+    padding-top: 3px;
+}
+
+
+
+@media screen and (Max-width:480px){
+    .search input{
+        border: 2px solid rgb(11, 12, 11);
+        width: 120px;
+        
+    }
+}

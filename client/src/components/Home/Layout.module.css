@@ -1,0 +1,80 @@
+.template_section{
+    background-color:rgb(221, 246, 246);
+    padding-bottom: 40px;
+    padding-top: 7px;
+}
+
+.template_top{
+    margin-left: 180px;
+    margin-right: 180px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.template_left{
+    text-transform: capitalize;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.template_right{
+    display: flex;
+    align-items: center;
+}
+
+.template_body{
+     margin-left: 100px;
+    margin-right: 180px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card{
+    margin-left: 70px;
+    margin-top: 15px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.card img{
+  box-sizing: border-box;
+  margin-top: 12px;
+  height: 160px;
+  width: 160px;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 0.25px solid gray;
+}
+
+.card img:hover{
+    border: 2px solid mediumslateblue;
+}
+
+.image{
+    width: 40px;
+    height: 40px;
+}
+
+.text{
+    margin-left: 20px;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: rgb(31, 29, 29);
+    text-align: center;
+    
+}
+
+.SideBar{
+    text-align: center;
+    color: rgb(30, 23, 23);
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.sideElement{
+    margin: 6px 1px;
+    
+}
