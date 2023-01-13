@@ -41,7 +41,7 @@ function SavedQuestion(props) {
           ) : (
             <ShortTextIcon style={{ marginRight: "10px" }} />
           )}
-          <div>
+          <div className="my_box">
             <input
               type="text"
               className="text_input"
