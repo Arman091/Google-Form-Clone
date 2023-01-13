@@ -38,6 +38,7 @@ function Submit(props) {
         alert("form submitted succesfully");
         navigate('/')
       });
+     navigate("/");
   };
   return (
     <div>

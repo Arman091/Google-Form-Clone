@@ -2,6 +2,7 @@
     background-color:rgb(221, 246, 246);
     padding-bottom: 40px;
     padding-top: 7px;
+
 }
 
 .template_top{
@@ -77,4 +78,30 @@
 .sideElement{
     margin: 6px 1px;
     
+}
+
+@media screen and (Max-width:480px){
+   
+.template_section{
+    background-color:rgb(221, 246, 246);
+    padding-bottom: 40px;
+    padding-top: 7px;
+    display: flex;
+    flex-direction: column;
+
+}
+.template_body{
+     margin-left: 100px;
+    margin-right: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.template_top{
+    margin-left: 18px;
+    margin-right: 18px;
+    align-items: center;
+    justify-content: space-between;
+}
 }
