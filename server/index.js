@@ -33,7 +33,7 @@ app.post("/form/upload", async (req, res) => {
   );
   // let form = new Form(req.body);
   // let result = await form.save();
-  let data = await req.body;
+  let data = await req.body.params;
   console.log(JSON.stringify(data));
   if (1) {
     res.status(200).send("inserted document");
