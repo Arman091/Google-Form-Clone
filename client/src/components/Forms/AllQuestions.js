@@ -19,6 +19,7 @@ function AllQuestions(props) {
       onClick={() => {
         toggleOne(i);
       }}
+      key={i}
     >
       <AccordionSummary
         aria-controls="panella-content"

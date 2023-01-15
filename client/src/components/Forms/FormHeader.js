@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { IconButton } from "@mui/material";
-import { IoMdFolderOpen } from "react-icons/io";
+import { IoMdFolderOpen }  from "react-icons/io";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import VisibilityIcon from "@mui/icons-material/Visibility";

@@ -47,7 +47,6 @@ function Questions() {
     },
   ]);
 
-  
   // View saved Questions
 
   function viewQuestionPaper() {
@@ -59,8 +58,6 @@ function Questions() {
     setsubmit(true);
 
     dispatch({ type: "SET QUESTIONS", questions: questions });
-
-    
   }
   function changeQuestion(text, i) {
     let updatedQs = [...questions];
@@ -102,7 +99,7 @@ function Questions() {
   }
 
   function copyQuestion(i) {
-    console.log("triggred me copy");
+   
     let qs = [...questions];
     let newQuestion = qs[i];
 
@@ -139,13 +136,9 @@ function Questions() {
 
   function toggleAll() {
     let qs = [...questions];
-    for (let i = 0; i < qs.length; i++) {
-      if (i === qs.length - 1) {
-        qs[qs.length].open = true;
-      }
+    for (let i = 0; i < qs.length - 1; i++) {
       qs[i].open = false;
     }
-    setquestion(qs);
   }
   function toggleOne(i) {
     let qs = [...questions];
@@ -193,7 +186,7 @@ function Questions() {
   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   function questionsUI() {
     return questions.map((ques, i) => (
-      <div>
+      <div key={i}>
         <Accordion
           variant="filled"
           expanded={questions[i].open}
@@ -282,7 +275,6 @@ function Questions() {
                   type="text"
                   className="question_form_top_name"
                   placeholder="Description"
-                
                 ></input>
 
                 <h5 type="text" className="question_form_top_desc">

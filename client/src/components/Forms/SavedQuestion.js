@@ -2,7 +2,7 @@ import { Typography, TextField } from "@mui/material";
 import ShortTextIcon from "@mui/icons-material/ShortText";
 function SavedQuestion(props) {
   let ques = props.question;
-  console.log(props)
+  
   return (
     <div className="saved_questions">
       <Typography
@@ -20,8 +20,9 @@ function SavedQuestion(props) {
           <TextField
             required
             id="standard-required"
-            value={`${ques.questionText} *`}
+            defaultValue={`${ques.questionText} *`}
             variant="standard"
+
           />
         ) : (
           <> {ques.questionText} </>
@@ -46,7 +47,7 @@ function SavedQuestion(props) {
               type="text"
               className="text_input"
               placeholder="Answer"
-              value={ques.options[j].optionText}
+              defaultValue={ques.options[j].optionText}
             ></input>
           </div>
         </div>

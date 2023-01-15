@@ -9,34 +9,52 @@ app.use(express.urlencoded({ extended: true }));
 dotenv.config();
 app.use(cors());
 
-app.post("/form/upload", async (req, res) => {
-  let form = new Form(req.body);
-  let result = await form.save();
-  if (result) {
-    res.status(200).send("inserted document");
-  }
-  else {
-    res.status("Something went Wrong")
-  }
+app.get("/forms/data", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  const findDB = async () => {
+    let data = await Form.find();
+
+    res.status(200).send(JSON.stringify(data));
+  };
+  findDB();
 });
 
-app.get("/forms/data", (req, res) => {
- const findDB = async () => {
-   let data = await Form.find();
-   console.log(data);
-   res.status(200).json(data)
- };
- findDB();
+app.post("/form/upload", async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  // let form = new Form(req.body);
+  // let result = await form.save();
+  let data = await req.body;
+  console.log(JSON.stringify(data));
+  if (1) {
+    res.status(200).send("inserted document");
+  } else {
+    res.status("Something went Wrong");
+  }
 });
- 
 
 app.delete("/forms/delete/:id", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   const { id } = req.params;
   const deleteInDb = async () => {
     let data = await Form.deleteOne({ form_id: id });
     console.log(data);
   };
-
+  deleteInDb();
   res.status(200).send(data);
 });
 

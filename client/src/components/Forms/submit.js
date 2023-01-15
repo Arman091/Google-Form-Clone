@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import Table from "@mui/material/Table";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
@@ -14,43 +14,40 @@ function Submit(props) {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   let myques = state.questions.length;
-  let name = state.doc_name;
+
   let id = props.id;
   const nameref = useRef();
   const descref = useRef();
-  function changeData() {
+
+  let changeData = () => {
     let name = nameref.current.value;
     let desc = descref.current.value;
     dispatch({ type: "SET_DOC_ID", form_id: id });
     dispatch({ type: "SET_DOC_NAME", doc_name: name });
     dispatch({ type: "SET_DOC_DESC", doc_desc: desc });
-  }
+    return state;
+  };
   const navigate = useNavigate();
+
   const handleSubmit = async () => {
-    const params = state;
+    
+    let updateddata= await changeData();
+    const params =updateddata
     const options = {
       method: "POST",
       body: JSON.stringify(params),
     };
-    fetch("http://localhost:3001/form/upload", options)
-      .then((response) => response.json())
+     fetch("http://localhost:3001/form/upload", options)
+      .then((response) => console.log(response.statusText))
       .then((response) => {
         alert("form submitted succesfully");
-        navigate('/')
+        navigate("/");
       });
-     navigate("/");
   };
   return (
     <div>
       <h1>we are submitting form</h1>
-      <div className="my_data_buttons">
-        <Button variant="contained" size="medium" onClick={handleSubmit}>
-          Confirm
-        </Button>
-        <Button variant="contained" size="medium" onClick={changeData}>
-          Save ChANGED Data
-        </Button>
-      </div>
+
       <div className="question_form">
         <br></br>
 
@@ -58,20 +55,22 @@ function Submit(props) {
           <div className="question_title_section">
             <div className="question_form_top">
               <EditIcon className="SAVEDICON" />
+              <span className="name_edit">Description </span>
               <input
                 type="text"
                 className="question_form_top_desc"
-                placeholder={state.doc_name}
+                placeholder="Change Description"
                 ref={nameref}
               ></input>{" "}
               <EditIcon className="SAVEDICON" />
+              <span className="desc_edit">Name</span>
               <input
                 type="text"
+                placeholder="Change Name"
                 className="question_form_top_desc"
-                placeholder="Change Form Description"
                 ref={descref}
               ></input>
-              <h4 type="text" textAlign="center" className="summary">
+              <h4 type="text" textalign="center" className="summary">
                 Summary
               </h4>
               <TableContainer component={Paper}>
@@ -91,7 +90,7 @@ function Submit(props) {
                         Document Name
                       </TableCell>
                       <TableCell align="center" colSpan={3}>
-                        {name}
+                        {state.doc_name}
                       </TableCell>
                     </TableRow>
 
@@ -122,6 +121,14 @@ function Submit(props) {
                   </TableHead>
                 </Table>
               </TableContainer>
+              <div className="my_data_buttons">
+                <Button variant="contained" size="small" onClick={handleSubmit}>
+                  Confirm
+                </Button>
+                <Button variant="contained" size="small" onClick={changeData}>
+                  preview ChANGED Data
+                </Button>
+              </div>
             </div>
           </div>
         </div>

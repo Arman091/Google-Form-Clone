@@ -14,7 +14,7 @@ const Layout = (props) => {
     const small_id = id.slice(0, 8);
     navigate("/forms/" + small_id);
     //============ RECIEVED THIS FUNCTION FROM PARENT TO STATE LIFTING ========//
-    props.getFormId({ form_id: small_id });
+   
   };
 
   return (

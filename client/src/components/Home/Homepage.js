@@ -1,31 +1,29 @@
 import Header from "./Header";
 import Layout from "./Layout";
-import { useReducer } from "react";
 
-const initialstate = {
-  forms: [],
-};
+import { useEffect,useState } from "react";
+import { useSelector } from "react-redux";
 
-const reducerFunc = (state = 0, action) => {
-  if (action.type === "Add") {
-    const updatedItem = state.forms.concat(action.data);
-
-    return {
-      forms: updatedItem,
-    };
-  }
-
-  return state;
-};
 const Home = () => {
-  const [state, dispatch] = useReducer(reducerFunc, initialstate);
-  const getFormId = (data) => {
-    dispatch({ type: "Add", data: data });
-  };
+  const state = useSelector((state) => state);
+  const[forms,setforms]=useState([])
+ 
+
+  useEffect(() => {
+    async function allForms() {
+      const res = await fetch("http://localhost:3001/forms/data");
+      const data = await res.json()
+      setforms(data)
+
+    }
+    allForms();
+  }, [state]);
+   
+ 
   return (
     <>
-      <Header forms={state} />
-      <Layout getFormId={getFormId} />
+      <Header />
+      <Layout forms={forms} />
     </>
   );
 };
