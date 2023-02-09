@@ -9,19 +9,21 @@ app.use(express.urlencoded({ extended: true }));
 dotenv.config();
 app.use(cors());
 
-app.get("/forms/data", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
 
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  const findDB = async () => {
-    let data = await Form.find();
 
-    res.status(200).send(JSON.stringify(data));
-  };
-  findDB();
+// const findDB = async () => {
+ 
+//   return data;
+// };
+app.get("/forms/data", async(req, res) => {
+ res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+
+ res.header(
+   "Access-Control-Allow-Headers",
+   "Origin, X-Requested-With, Content-Type, Accept"
+ );
+   let data = await Form.find();
+  res.send(data);
 });
 
 app.post("/form/upload", async (req, res) => {
@@ -31,14 +33,14 @@ app.post("/form/upload", async (req, res) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-  // let form = new Form(req.body);
+  let form = new Form(req.body);
   // let result = await form.save();
-  let data = await req.body.params;
-  console.log(JSON.stringify(data));
-  if (1) {
-    res.status(200).send("inserted document");
+
+  // console.log(form.questions);
+  if (form) {
+    res.send("inserted document");
   } else {
-    res.status("Something went Wrong");
+    res.send("Something went Wrong");
   }
 });
 
@@ -59,9 +61,12 @@ app.delete("/forms/delete/:id", (req, res) => {
 });
 
 const PORT = process.env.PORT || 6001;
-let url = `mongodb+srv://${process.env.USER_NAME}:${process.env.PASSWORD}@cluster0.rkx2xm3.mongodb.net/Forms?retryWrites=true&w=majority`;
+
+const uri =
+  "mongodb+srv://coderbyte:armanK123@cluster0.rkx2xm3.mongodb.net/?retryWrites=true&w=majority";
+
 const db = mongoose
-  .connect(url, {
+  .connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

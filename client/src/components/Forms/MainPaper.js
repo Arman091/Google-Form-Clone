@@ -1,7 +1,6 @@
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
 import TextFieldsIcon from "@mui/icons-material/TextFields";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
-import EditIcon from "@mui/icons-material/Edit";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 import {
@@ -195,15 +194,10 @@ function Questions() {
             toggleOne(i);
           }}
         >
-          <AccordionSummary
-            aria-controls="panella-content"
-            id="panella-header"
-            elevation={1}
-            style={{ width: "100%" }}
-          >
-            {/*++++++++++++++++++++ SAVED QUESTION TOP HERE++++++++++++++++  */}
+          <div>
             {questions[i].open ? <SavedQuestion question={ques} /> : ""}
-          </AccordionSummary>
+          </div>
+          
           {/*++++++++++++++++++++ Question  EDITING EDITING SECTION  STARTS HERE++++++++++++++++  */}
           <div className="question_boxes">
             {!questions[i].answer ? (
@@ -278,7 +272,7 @@ function Questions() {
                 ></input>
 
                 <h5 type="text" className="question_form_top_desc">
-                  Description <EditIcon className="icon" />
+                  Description 
                 </h5>
                 <div className="my_buttons">
                   {!isViewform ? (

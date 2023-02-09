@@ -25,9 +25,13 @@
 
 
 @media screen and (Max-width:480px){
-    .search input{
-        border: 2px solid rgb(11, 12, 11);
-        width: 120px;
-        
-    }
+   .header{
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+   }
+
+   .search{
+    margin: 7px auto;
+   }
 }

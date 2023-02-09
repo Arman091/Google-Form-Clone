@@ -30,24 +30,10 @@
   border-bottom: 1px solid azure;
   color: black;
   height: 35px;
-  margin-top: 20px;
+ 
 }
 
-.question_form_top_desc {
-  box-sizing: border-box;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 40px;
-  width: 100%;
-  border: none;
-  outline: mone;
-  border-bottom: 1px solid azure;
-  color: black;
-  height: 20px;
-  text-align: start;
-  margin-top: 25px;
-}
+
 
 .question_boxes {
   display: flex;
@@ -246,7 +232,7 @@
 }
 @media screen and (max-width: 480px) {
   .text_input {
-    width: 160px;
+    width: 224px;
     height: 40px;
   }
   .add_question_top {
@@ -291,4 +277,25 @@
     position: relative;
     right: 30px;
   }
+  .section{
+    width: 100%;
+  }
+  .my_table{
+    min-width: fit-content;
+  }
+  .l_button{
+    height: 23px;
+    width: 90px;
+    margin: 0 9px;
+  }
+  .my_data_buttons {
+  display: flex;
+  flex-direction: row;
+}
+.SAVEDICON {
+  color: blue;
+  position: relative;
+  top: 72px;
+  left: 100px;
+}
 }

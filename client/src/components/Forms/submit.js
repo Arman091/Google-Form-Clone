@@ -30,17 +30,16 @@ function Submit(props) {
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
-    
-    let updateddata= await changeData();
-    const params =updateddata
+    let updateddata = await changeData();
+    const params = updateddata;
     const options = {
       method: "POST",
       body: JSON.stringify(params),
     };
-     fetch("http://localhost:3001/form/upload", options)
+    fetch("http://localhost:6001/form/upload", options)
       .then((response) => console.log(response.statusText))
       .then((response) => {
-        alert("form submitted succesfully");
+        alert(`form submitted succesfully `);
         navigate("/");
       });
   };
@@ -74,7 +73,7 @@ function Submit(props) {
                 Summary
               </h4>
               <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 700 }} aria-label="spanning table">
+                <Table aria-label="spanning table" className="my_table">
                   <TableHead>
                     <TableRow>
                       <TableCell align="left" colSpan={3}>
@@ -122,11 +121,13 @@ function Submit(props) {
                 </Table>
               </TableContainer>
               <div className="my_data_buttons">
-                <Button variant="contained" size="small" onClick={handleSubmit}>
+                <Button
+                  variant="contained"
+                  className="l_button"
+                  size="small"
+                  onClick={handleSubmit}
+                >
                   Confirm
-                </Button>
-                <Button variant="contained" size="small" onClick={changeData}>
-                  preview ChANGED Data
                 </Button>
               </div>
             </div>

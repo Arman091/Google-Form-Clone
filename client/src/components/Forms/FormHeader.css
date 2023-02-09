@@ -37,9 +37,17 @@
   justify-content: space-between;
 }
 
-@media screen and (Max-width:720px) {
+@media screen and (Max-width:480px) {
     .form_header{
         width: auto;
-        display: block;
+        flex-direction: column-reverse;
+    }
+   
+   .span{
+      font-size: 9px;
+      margin-right: 4px;
+    }
+    .form_name span{
+      font-size: 11px;
     }
 }

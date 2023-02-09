@@ -6,20 +6,20 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
   const state = useSelector((state) => state);
-  const[forms,setforms]=useState([])
+  const[forms,setforms]=useState("")
  
 
   useEffect(() => {
     async function allForms() {
-      const res = await fetch("http://localhost:3001/forms/data");
+      const res = await fetch("http://localhost:6001/forms/data");
       const data = await res.json()
       setforms(data)
 
     }
     allForms();
   }, [state]);
+  console.log(forms)
    
- 
   return (
     <>
       <Header />
